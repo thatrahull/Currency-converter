@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* Animated Glow Effect */
+.glow-animation {
+   position: absolute;
+   width: 300px;
+   height: 300px;
+   background: white;
+   border-radius: 50px;
+   filter: blur(40px);
+   animation: glowMove 10s linear infinite;
+   opacity: 1;
+}
+
+@keyframes glowMove {
+   0% {
+      transform: translate(calc(100vw + 150px), -150px) scale(1);
+      opacity: 0;
+   }
+
+   5% {
+      opacity: 0.8;
+   }
+
+   95% {
+      opacity: 0.8;
+   }
+
+   100% {
+      transform: translate(-150px, calc(100vh + 150px)) scale(1);
+      opacity: 0;
+   }
+}
+
+/* Additional sine wave effect */
+.glow-animation::before {
+   content: "";
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 200px;
+   height: 200px;
+   background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(59, 130, 246, 0.2) 50%,
+      transparent 100%
+   );
+   border-radius: 50%;
+   transform: translate(-50%, -50%);
+   animation: sineWave 10s linear infinite;
+   filter: blur(20px);
+}
+
+@keyframes sineWave {
+   0% {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0.5;
+   }
+
+   25% {
+      transform: translate(-50%, -60%) scale(1);
+      opacity: 0.8;
+   }
+
+   50% {
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 1;
+   }
+
+   75% {
+      transform: translate(-50%, -40%) scale(1);
+      opacity: 0.8;
+   }
+
+   100% {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0.5;
+   }
+}
